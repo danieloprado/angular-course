@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="gorilla.app">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Angular App</title>
+
+  <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/custom.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <div class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="#" class="navbar-brand">Angular</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#" target="_blank">Home</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm-8">
+        <input type="text" ng-model="nome" class="form-control" />
+      </div>
+
+      <div class="col-sm-4">
+        <label>
+          <input type="checkbox" ng-model="masculino" /> Masculino
+        </label>
+      </div>
+    </div>
+
+    <button class="btn btn-info" ng-click="nome = 'daniel';masculino=true">
+      Mudar para: daniel
+    </button>
+
+    <button class="btn btn-info" ng-click="nome = 'maria';masculino=false">
+      Mudar para: maria
+    </button>
+
+    <button class="btn btn-danger" ng-click="nome = null">
+      Limpar
+    </button>
+
+    <div>
+      Olá
+      <span ng-show="masculino">Senhor</span>
+      <span ng-show="!masculino">Senhora</span>
+      {{nome}}!
+    </div>
+  </div>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+  <script src="//ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-route.min.js"></script>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>
