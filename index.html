@@ -30,39 +30,59 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="container" ng-controller="profileController">
 
     <div class="row">
       <div class="col-sm-8">
-        <input type="text" ng-model="nome" class="form-control" />
+        <input type="text" ng-model="profile.name" class="form-control" />
       </div>
 
       <div class="col-sm-4">
         <label>
-          <input type="checkbox" ng-model="masculino" /> Masculino
+          <input type="checkbox" ng-model="profile.male" /> Masculino
         </label>
       </div>
     </div>
 
-    <button class="btn btn-info" ng-click="nome = 'daniel';masculino=true">
-      Mudar para: daniel
+    <button class="btn btn-success" ng-click="add()">
+      Add
     </button>
 
-    <button class="btn btn-info" ng-click="nome = 'maria';masculino=false">
-      Mudar para: maria
-    </button>
+    {{message}} | {{messageProfile | date: 'mediumTime'}}
 
-    <button class="btn btn-danger" ng-click="nome = null">
-      Limpar
-    </button>
+    <hr />
 
-    <div>
-      Olá
-      <span ng-show="masculino">Senhor</span>
-      <span ng-show="!masculino">Senhora</span>
-      {{nome}}!
-    </div>
+    <input type="text" class="form-control" ng-model="search" placeholder="Search..." />
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>Sexo</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-if="profiles.length == 0">
+          <td colspan="4" class="text-center">Ninguem aqui...</td>
+        </tr>
+        <tr ng-repeat="item in profiles | filter: search">
+          <td>{{$index+1}}.</td>
+          <td>{{item.name}}</td>
+          <td>
+            <span ng-show="item.male">Masculino</span>
+            <span ng-show="!item.male">Feminino</span>
+          </td>
+          <td class="text-right">
+            <button class="btn btn-danger" ng-click="remove($index)">Remover</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
   </div>
+  <!-- container -->
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
