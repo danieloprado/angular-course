@@ -52,14 +52,9 @@
 
     <hr />
 
-    <div class="row">
-      <div class="col-md-10">
-        <input type="text" class="form-control" ng-model="search" placeholder="Search..." />
-      </div>
-      <div class="col-md-2 text-center">
+    <div class="text-right">
         Last Update<br />
         {{lastUpdate | date: "mediumTime"}}
-      </div>
     </div>
 
     <table class="table table-striped">
@@ -75,7 +70,7 @@
         <tr ng-if="profiles.length == 0">
           <td colspan="4" class="text-center">Ninguem aqui...</td>
         </tr>
-        <tr ng-repeat="item in profiles | filter: search">
+        <tr ng-repeat="item in profiles">
           <td>{{$index+1}}.</td>
           <td>{{item.name}}</td>
           <td>
