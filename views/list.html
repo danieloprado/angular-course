@@ -1,0 +1,30 @@
+<div class="text-right">
+  <a href="/create" class="btn btn-success">Create</a>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+      <th>Sexo</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-if="profiles.length == 0">
+      <td class="text-center" colspan="4">Ninguem aqui...</td>
+    </tr>
+    <tr ng-repeat="item in profiles">
+      <td>{{$index+1}}.</td>
+      <td>{{item.name}}</td>
+      <td>
+        <span ng-show="item.male">Masculino</span>
+        <span ng-show="!item.male">Feminino</span>
+      </td>
+      <td class="text-right">
+        <button class="btn btn-danger" ng-click="remove($index)">Remover</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
